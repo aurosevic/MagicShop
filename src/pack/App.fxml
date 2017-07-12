@@ -1,39 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="430.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.ControllerApp">
    <children>
-      <ImageView fitHeight="469.0" fitWidth="532.0" layoutX="5.0" layoutY="-27.0" opacity="0.77" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-92.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="25.511077880859375" AnchorPane.topAnchor="-27.0">
+      <ImageView fitHeight="469.0" fitWidth="532.0" layoutX="5.0" layoutY="-27.0" opacity="0.26" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-92.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="25.511077880859375" AnchorPane.topAnchor="-27.0">
          <image>
             <Image url="@../img/background.png" />
          </image>
       </ImageView>
-      <HBox alignment="CENTER" prefHeight="60.0" prefWidth="1000.0" spacing="70.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" prefHeight="350.0" prefWidth="430.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
-            <JFXButton style="-fx-background-color: B5509C;" text="Login" textFill="WHITE">
+            <JFXTextField fx:id="tfUser" focusColor="DARKMAGENTA" labelFloat="true" prefHeight="30.0" promptText="username">
                <font>
-                  <Font name="System Bold" size="30.0" />
+                  <Font size="15.0" />
                </font>
                <cursor>
-                  <Cursor fx:constant="HAND" />
+                  <Cursor fx:constant="TEXT" />
                </cursor>
-            </JFXButton>
-            <JFXButton alignment="CENTER" style="-fx-background-color: gray;" text="Register" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXPasswordField fx:id="pfPass" focusColor="DARKMAGENTA" labelFloat="true" prefHeight="30.0" promptText="password">
                <font>
-                  <Font name="System Bold" size="30.0" />
+                  <Font size="15.0" />
                </font>
                <cursor>
-                  <Cursor fx:constant="HAND" />
+                  <Cursor fx:constant="TEXT" />
                </cursor>
-            </JFXButton>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </JFXPasswordField>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="1000.0" spacing="30.0">
+               <children>
+                  <JFXButton fx:id="btnLogin" defaultButton="true" onAction="#checkLogin" style="-fx-background-color: B5509C;" text="Login" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton fx:id="btnRegister" alignment="CENTER" onAction="#registerUser" style="-fx-background-color: gray;" text="Register" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets top="30.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
          </children>
-      </HBox>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
    </children>
 </AnchorPane>
