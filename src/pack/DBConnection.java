@@ -7,11 +7,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 
 public class DBConnection {
 
-	private Connection con = null;
+	private Connection con;
+	private ObservableList<Person> persons = FXCollections.observableArrayList();
 
 	public void connect() {
 		try {
@@ -40,8 +43,11 @@ public class DBConnection {
 		return false;
 	}
 
+	/**
+	 * @return true is user name already exists
+	 */
 	public boolean checkUsername(String user) {
-		String query = "select username, password from korisnici";
+		String query = "select username from korisnici";
 
 		try {
 			Statement st = con.createStatement();
@@ -85,5 +91,26 @@ public class DBConnection {
 			} else return 2;
 		}
 		return 0;
+	}
+	
+	public ObservableList<Person> loadTableData() {
+		
+		String query = "select id, username, name, secondName from korisnici";
+		
+		try {
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery(query);
+			
+			while(rs.next()) {
+				persons.add(new Person(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return persons;
+	}
+	
+	public ObservableList<Person> getPersons() {
+		return persons;
 	}
 }

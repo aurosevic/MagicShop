@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -27,6 +28,8 @@ public class ControllerApp {
     private JFXTextField tfUser;
     @FXML
     private JFXPasswordField pfPass;
+    @FXML
+    private Label lblIncorrect;
     
     public void createConnection() {
     	con.connect();
@@ -37,9 +40,24 @@ public class ControllerApp {
 
     	createConnection();
     	if(con.checkLogin(tfUser.getText().trim(), pfPass.getText().trim())) {
-    		btnLogin.setText("Yep!");
+    		lblIncorrect.setVisible(false);
+    		//	btnLogin.setText("Yep!");
+    		Stage stage = (Stage) btnLogin.getScene().getWindow();
+    		try {
+				Pane pane = FXMLLoader.load(getClass().getResource("HomeScreen.fxml"));
+				Scene scene = new Scene(pane);
+				stage.setScene(scene);
+				stage.setTitle("Magic shop");
+				stage.centerOnScreen();
+				
+				/** Forwarding data from text field on one pane to label on another pane */
+				Label lbl = (Label) pane.getChildren().get(0);
+				lbl.setText(tfUser.getText().trim());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
     	} else {
-    		btnLogin.setText("!Magga");
+    		lblIncorrect.setVisible(true);
     	}
     	btnLogin.setDefaultButton(true);
     }
@@ -53,6 +71,7 @@ public class ControllerApp {
 			stage.close();
 			stage.setScene(scene);
 			stage.setTitle("Registration");
+			stage.centerOnScreen();
 			stage.show();
 		} catch (IOException e) {
 			e.printStackTrace();

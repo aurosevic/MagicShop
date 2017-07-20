@@ -41,6 +41,7 @@ public class ControllerRegister {
 			Scene scene = new Scene(pane);
 			stage.close();
 			stage.setScene(scene);
+			stage.setTitle("Magic shop");
 			stage.show();
 		} catch (IOException e) {
 			e.printStackTrace();

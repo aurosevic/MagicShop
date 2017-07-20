@@ -5,6 +5,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,7 +20,7 @@
             <Image url="@../img/background.png" />
          </image>
       </ImageView>
-      <VBox alignment="CENTER" prefHeight="350.0" prefWidth="430.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <VBox alignment="CENTER" prefHeight="350.0" prefWidth="430.0" spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
             <JFXTextField fx:id="tfUser" focusColor="DARKMAGENTA" labelFloat="true" prefHeight="30.0" promptText="username">
                <font>
@@ -43,6 +44,14 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </JFXPasswordField>
+            <Label fx:id="lblIncorrect" text="Incorrect login data" textFill="RED" visible="false">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="1000.0" spacing="30.0">
                <children>
                   <JFXButton fx:id="btnLogin" defaultButton="true" onAction="#checkLogin" style="-fx-background-color: B5509C;" text="Login" textFill="WHITE">
@@ -62,9 +71,6 @@
                      </cursor>
                   </JFXButton>
                </children>
-               <padding>
-                  <Insets top="30.0" />
-               </padding>
                <VBox.margin>
                   <Insets />
                </VBox.margin>
