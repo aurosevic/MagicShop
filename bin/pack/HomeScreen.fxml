@@ -30,7 +30,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <TableView fx:id="tableUsers" focusTraversable="false" layoutX="266.0" layoutY="259.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="170.0">
+      <TableView fx:id="tableUsers" editable="true" focusTraversable="false" layoutX="266.0" layoutY="259.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="170.0">
          <columns>
             <TableColumn fx:id="columnId" prefWidth="60.0" text="#" />
             <TableColumn fx:id="columnUsername" prefWidth="164.0" text="username" />
@@ -40,7 +40,7 @@
       </TableView>
       <JFXButton fx:id="btnLogout" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="834.0" layoutY="2.0" onAction="#logout" text="Logout" textFill="#c6b5b5" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <padding>
-            <Insets bottom="23.0" left="10.0" right="10.0" top="27.0" />
+            <Insets bottom="23.0" left="10.0" right="11.0" top="27.0" />
          </padding>
          <font>
             <Font name="System Bold Italic" size="12.0" />

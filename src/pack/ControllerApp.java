@@ -41,18 +41,30 @@ public class ControllerApp {
     	createConnection();
     	if(con.checkLogin(tfUser.getText().trim(), pfPass.getText().trim())) {
     		lblIncorrect.setVisible(false);
-    		//	btnLogin.setText("Yep!");
     		Stage stage = (Stage) btnLogin.getScene().getWindow();
     		try {
-				Pane pane = FXMLLoader.load(getClass().getResource("HomeScreen.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeScreen.fxml"));
+				Pane pane = loader.load();
+				ControllerHomeScreen controller = loader.getController();
+				controller.getLblUser().setText(tfUser.getText().trim());
+				
 				Scene scene = new Scene(pane);
 				stage.setScene(scene);
 				stage.setTitle("Magic shop");
 				stage.centerOnScreen();
 				
-				/** Forwarding data from text field on one pane to label on another pane */
-				Label lbl = (Label) pane.getChildren().get(0);
-				lbl.setText(tfUser.getText().trim());
+				/**
+				 * Second way, the one above is BETTER
+				 */
+//				Pane pane = FXMLLoader.load(getClass().getResource("HomeScreen.fxml"));
+//				/** Forwarding data from text field on one pane to label on another pane */
+//				Label lbl = (Label) pane.getChildren().get(0);
+//				lbl.setText(tfUser.getText().trim());
+//				Scene scene = new Scene(pane);
+//				stage.setScene(scene);
+//				stage.setTitle("Magic shop");
+//				stage.centerOnScreen();
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

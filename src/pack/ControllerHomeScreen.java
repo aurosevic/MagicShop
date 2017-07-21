@@ -62,6 +62,10 @@ public class ControllerHomeScreen {
 			e.printStackTrace();
 		}
     }
+    
+    public Label getLblUser() {
+		return lblUser;
+	}
 
 	public TableColumn<Person, Integer> getColumnId() {
 		return columnId;
